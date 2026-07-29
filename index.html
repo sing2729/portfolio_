@@ -15,68 +15,87 @@
     }
 
     body {
-      font-family: Arial, sans-serif;
+      font-family: Arial, Helvetica, sans-serif;
       background: #0a0a0a;
       color: white;
       line-height: 1.6;
     }
 
     nav {
+      width: 100%;
+      padding: 20px 8%;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 20px 8%;
       position: fixed;
-      width: 100%;
+      top: 0;
+      left: 0;
       background: rgba(10, 10, 10, 0.9);
-      z-index: 100;
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      border-bottom: 1px solid #1f1f1f;
     }
 
     nav h2 {
       font-size: 22px;
+      letter-spacing: 2px;
     }
 
     nav a {
       color: white;
       text-decoration: none;
-      margin-left: 20px;
+      margin-left: 25px;
       font-size: 14px;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #999;
     }
 
     .hero {
       min-height: 100vh;
+      padding: 120px 8% 60px;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding: 0 8%;
     }
 
     .hero p {
       color: #999;
       font-size: 18px;
-      margin-bottom: 10px;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+      letter-spacing: 3px;
     }
 
     .hero h1 {
-      font-size: clamp(45px, 9vw, 110px);
-      line-height: 1;
-      max-width: 900px;
+      max-width: 1000px;
+      font-size: clamp(48px, 9vw, 115px);
+      line-height: 0.95;
+      letter-spacing: -4px;
     }
 
     .hero span {
-      color: #777;
+      color: #666;
     }
 
     .hero-button {
       display: inline-block;
       width: fit-content;
-      margin-top: 30px;
-      padding: 14px 25px;
+      margin-top: 35px;
+      padding: 14px 26px;
       background: white;
       color: black;
       text-decoration: none;
       border-radius: 30px;
       font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .hero-button:hover {
+      background: #bfbfbf;
+      transform: translateY(-3px);
     }
 
     section {
@@ -84,61 +103,88 @@
     }
 
     .section-title {
-      font-size: 40px;
-      margin-bottom: 30px;
+      font-size: clamp(38px, 6vw, 65px);
+      margin-bottom: 35px;
+      letter-spacing: -2px;
     }
 
     .about-text {
-      max-width: 750px;
+      max-width: 850px;
       color: #bbb;
-      font-size: 20px;
+      font-size: 21px;
     }
 
     .projects {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
       gap: 25px;
     }
 
     .project-card {
       background: #151515;
-      border-radius: 15px;
+      border: 1px solid #252525;
+      border-radius: 18px;
       overflow: hidden;
       transition: 0.3s;
     }
 
     .project-card:hover {
       transform: translateY(-8px);
+      border-color: #555;
     }
 
     .project-image {
-      height: 230px;
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      display: block;
       background: #292929;
+    }
+
+    .placeholder-image {
+      width: 100%;
+      height: 250px;
       display: flex;
       justify-content: center;
       align-items: center;
+      background: #242424;
       color: #777;
+      font-size: 15px;
     }
 
     .project-info {
-      padding: 20px;
+      padding: 22px;
+    }
+
+    .project-info h3 {
+      font-size: 23px;
+      margin-bottom: 5px;
     }
 
     .project-info p {
       color: #888;
-      margin-top: 5px;
     }
 
     .services {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
       gap: 20px;
     }
 
     .service {
       padding: 30px;
       border: 1px solid #333;
-      border-radius: 15px;
+      border-radius: 16px;
+      transition: 0.3s;
+    }
+
+    .service:hover {
+      background: #151515;
+      transform: translateY(-5px);
+    }
+
+    .service h3 {
+      font-size: 21px;
     }
 
     .service p {
@@ -148,15 +194,25 @@
 
     .contact {
       text-align: center;
+      padding-top: 140px;
+      padding-bottom: 140px;
+    }
+
+    .contact p {
+      color: #999;
+      font-size: 18px;
     }
 
     .contact h2 {
-      font-size: clamp(40px, 8vw, 80px);
-      margin-bottom: 20px;
+      font-size: clamp(42px, 8vw, 90px);
+      line-height: 1;
+      margin: 15px 0 30px;
+      letter-spacing: -4px;
     }
 
     .contact a {
       color: white;
+      font-size: 18px;
     }
 
     footer {
@@ -166,17 +222,34 @@
       border-top: 1px solid #222;
     }
 
-    @media (max-width: 650px) {
+    @media (max-width: 700px) {
+      nav {
+        padding: 18px 6%;
+      }
+
       nav div {
         display: none;
+      }
+
+      .hero {
+        padding-left: 6%;
+        padding-right: 6%;
+      }
+
+      .hero h1 {
+        letter-spacing: -2px;
       }
 
       section {
         padding: 80px 6%;
       }
 
-      .hero {
-        padding: 0 6%;
+      .about-text {
+        font-size: 18px;
+      }
+
+      .contact h2 {
+        letter-spacing: -2px;
       }
     }
   </style>
@@ -215,7 +288,8 @@
         I’m Sameer Singal, a multidisciplinary creative focused on video
         editing, cinematography, photography, content creation and digital
         design. My work is inspired by music, street culture, people and
-        real-life experiences.
+        real-life experiences. I enjoy turning simple ideas into strong,
+        memorable visuals.
       </p>
     </section>
 
@@ -225,25 +299,33 @@
       <div class="projects">
 
         <article class="project-card">
-          <div class="project-image">Project Image</div>
+          <img
+            src="video-editing.jpg"
+            alt="Video editing project by Sameer Singal"
+            class="project-image"
+          >
 
           <div class="project-info">
             <h3>Video Editing</h3>
-            <p>Music videos, reels and cinematic edits.</p>
+            <p>Music videos, cinematic edits and social media reels.</p>
           </div>
         </article>
 
         <article class="project-card">
-          <div class="project-image">Project Image</div>
+          <div class="placeholder-image">
+            Upload cinematography image later
+          </div>
 
           <div class="project-info">
             <h3>Cinematography</h3>
-            <p>Visual storytelling through camera and lighting.</p>
+            <p>Visual storytelling through composition, camera and lighting.</p>
           </div>
         </article>
 
         <article class="project-card">
-          <div class="project-image">Project Image</div>
+          <div class="placeholder-image">
+            Upload design image later
+          </div>
 
           <div class="project-info">
             <h3>Brand Design</h3>
@@ -261,22 +343,33 @@
 
         <div class="service">
           <h3>Video Editing</h3>
-          <p>Cinematic edits, music videos and social media content.</p>
+          <p>
+            Cinematic edits, music videos, promotional videos and short-form
+            social media content.
+          </p>
         </div>
 
         <div class="service">
           <h3>Content Creation</h3>
-          <p>Creative concepts and short-form content for brands and creators.</p>
+          <p>
+            Creative concepts and engaging content for brands, creators and
+            influencers.
+          </p>
         </div>
 
         <div class="service">
           <h3>Photography</h3>
-          <p>Portrait, lifestyle and creative visual photography.</p>
+          <p>
+            Portrait, lifestyle, event and creative visual photography.
+          </p>
         </div>
 
         <div class="service">
           <h3>Creative Direction</h3>
-          <p>Visual ideas, campaigns, storyboards and brand storytelling.</p>
+          <p>
+            Visual ideas, campaigns, moodboards, storyboards and brand
+            storytelling.
+          </p>
         </div>
 
       </div>
@@ -284,9 +377,12 @@
 
     <section id="contact" class="contact">
       <p>Have a project in mind?</p>
+
       <h2>Let’s create something.</h2>
 
-      <a href="mailto:your@email.com">your@email.com</a>
+      <a href="mailto:your@email.com">
+        your@email.com
+      </a>
     </section>
 
   </main>
